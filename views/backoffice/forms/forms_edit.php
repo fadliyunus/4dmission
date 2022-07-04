@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-12 d-flex">
+        <div class="card flex-fill">
+            <?php if (isset($form)) : ?>
+                <?= $this->form_builder->open_form(array('action' => '', 'id'=>'form-edit')) ?>
+                <?= $this->form_builder->build_form_horizontal($form) ?>
+                <?= $this->form_builder->close_form(); ?>
+            <?php endif; ?>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="fieldModal" tabindex="-1" role="dialog" aria-labelledby="fieldModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fieldModalLabel">Add field</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-edit-field">
+                    <?= form_hidden('index') ?>
+                    <div class="form-group row">
+                        <label class="col-sm-12 col-form-label">Field</label>
+                        <div class="col-sm-12">
+                            <?= form_dropdown($fields); ?>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-submit-field">Save changes</button>
+                <button type="button" class="btn btn-secondary" id="btn-cancel-field" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
